@@ -7,12 +7,80 @@ const testButton = document.querySelector('#test-button');
 const apikey = "a085bc67c698a7064a5818cd2220822d";
 axios.defaults.headers.common = { 'Authorization': `Token token=${apikey}` };
 
+// let quoteKeywords = ["goals", "attitude", "fear", "strength"];
+// let quotePageCounter = 1;
 
-testButton.addEventListener('click', async () => {
-  const response = await axios.get(`https://favqs.com/api/quotes/?filter=dreams&tag=pain&tag=goals&tag=perseverance&tag=ambition&tag=progress&tag=energy&tag=exercise&tag=dignity&tag=motivation&tag=persistence&tag=power&tag=strength`)
-  console.log(response);
-  //filters - goals,motivation,inspiration,power
-});
+let urls = ["https://favqs.com/api/quotes/?filter=attitude&page=2","https://favqs.com/api/quotes/?filter=goals&page=2","https://favqs.com/api/quotes/?filter=strength&page=2", "https://favqs.com/api/quotes/?filter=perseverance&page=3","https://favqs.com/api/quotes/?filter=ambition&page=1", "https://favqs.com/api/quotes/?filter=progress&page=1"]
+
+// const getQuotes = () => {
+//   let completeQuotesArray = [];
+//   const quotesPromises = urls.map(async url => {
+//     const response = await axios.get(url);
+//     console.log(response);
+//     return response.data.quotes;
+//   });
+//   for (const quotesPromise of quotesPromises) {
+//     let quotesArray = await quotesPromise;
+//     for (let i = 0; i < quotesArray.length; i++) {
+//       let quote = quotesArray[i].body;
+//       // console.log(quote)
+//       if (quote.length < 150) {
+//         completeQuotesArray.push(quote);
+//       }
+//       // console.log(completeQuotesArray.length)
+      
+//       // console.log(results)
+//     }
+    
+//     // console.log(completeQuotesArray.length)
+//     // renderQuote({name : quotesArray[0].body}) 
+//   }
+//   return completeQuotesArray;
+// }
+
+
+
+// const renderQuote = (quote) => {
+//   let quoteDisplay = document.querySelector(".quoteDisplay")
+//   const el = document.createElement('div');
+//   el.classList.add("quote");
+//   el.innerHTML = `
+//     <p> ${quote.body}</p>
+//     `
+//   quoteDisplay.append(el);
+// }
+
+
+//loop not working 
+// const selectQuote = async () => {
+//   while (completeQuotesArray.length < 60) {
+//     for (let i = 0; i < quoteKeywords; i += 1) {
+//       const response = await axios.get(`https://favqs.com/api/quotes/?filter=${quoteKeywords[i]}&page=${quotePageCounter}`);
+//       for (let j = 0; j < response.data.quotes; j += 1) {
+//         let quote = response.data.quotes[j];
+//         if (quote.body.length < 80) {
+//           completeQuotesArray.push(quote.body)
+//         }
+//       }
+//     }
+//     quotePageCounter += 1;
+//   }
+//   return completeQuotesArray;
+// }
+
+// testButton.addEventListener('click', getQuotes);
+
+
+//check the quotes to be no higher than 80/100 characters
+//need between 30 and 60 quotes 
+//have to respect API rate limit up to 90 per minute 
+
+
+//test API button function 
+// testButton.addEventListener('click', async () => {
+//   const response = await axios.get(`https://favqs.com/api/quotes/?filter=attitude&page=2`);
+  //filters - goals,attitude,fear,inspiration,power,perseverance,ambition,progress,persistence
+
 
 let amrap = [
   {
@@ -227,7 +295,7 @@ const selectWorkout = () => {
   let selectValue = document.getElementById("target").value;
   copiedArray = undefined;
   renderWorkout(undefined);
-  
+
   switch (selectValue) {
     case "amrap":
       workoutDescriptionDiv.innerHTML = workoutDescriptions.amrap;
@@ -305,7 +373,7 @@ const generateWorkout = () => {
       break;
 
     default:
-      renderWorkout(undefined);
+      renderWorkout(undefined); // will display blank if no switch case is chosen or if the user is selecting a different option 
       break;
   }
 
