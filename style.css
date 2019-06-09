@@ -1,0 +1,25 @@
+#select {
+  text-align: center;
+}
+
+#test-button {
+  padding: 10px;
+  color: red;
+  border: 1px solid black;
+  border-radius: 30%;
+
+}
+
+#go {
+  -webkit-appearance: none;
+  width: 180px;
+  height: 180px;
+  margin: 10px 0 0 10px;
+  border: 5px solid black;
+  border-radius: 50%;
+  font-size: 4em;
+  text-transform: uppercase;
+  font-weight: bold;
+  background-color: green;
+  color: white;
+}

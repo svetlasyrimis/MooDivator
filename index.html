@@ -3,10 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/easytimer@1.1.1/src/easytimer.js"></script>
+  <script defer src="app.js"></script>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <title>Moodifier</title>
 </head>
+<!-- ('hidden_div', this) -->
 <body>
-  
+  <h1>Hi</h1>
+  <div id="select">
+    <select name="select_category" id="target" onchange="showDiv()">
+      <option value="">Select...</option>
+      <option value="amrap">AMRAP</option>
+      <option value="forTime">For Time</option>
+      <option value="benchmarks">Benchmarks</option>
+      <option value="mixed">Mixed</option>
+    </select>
+    <div id="workoutDescription">
+    </div>
+    <button id="go">GO!</button>
+    <div id="workoutDisplay"></div>
+  </div>
+  <div id="timer">
+      <div class="values"></div>
+  </div>
+  <button id="test-button">TEST API</button>
 </body>
+
 </html>
