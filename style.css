@@ -1,3 +1,10 @@
+body {
+  margin: 0;
+  /* font-family: 'Lora', serif; */
+  background-color: #F7F9F9;
+}
+
+
 #select {
   text-align: center;
 }
@@ -20,6 +27,68 @@
   font-size: 4em;
   text-transform: uppercase;
   font-weight: bold;
-  background-color: green;
+  background-color: #59C39F;
   color: white;
 }
+header {
+  background-color: #59C39F;
+  height: 50px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  top: 0;
+  /* position: fixed; */
+
+   /* top: 0; 
+  z-index: 1;   */
+}
+#content-wrap {
+  padding-bottom: 2.5rem;    
+}
+
+#logo {
+  width: 60px;
+  margin-left: 10px;
+}
+#logo:hover {
+  background-color: #FFE633;
+  /* barbel colors: green #9CC055,blue #399CE9; yellow; #FFE633; */
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: #59C39F;
+  display: flex;
+  height: 3.5rem;;
+  justify-content: space-between;
+  color: #F7F9F9;
+  /* padding-top: 20px; */
+  
+}
+.hearts {
+  color: rgb(236, 71, 71);
+  /* font-size: 30px; */
+}
+.name {
+  font-size: 16px;
+  letter-spacing: .08em;
+  font-weight: 500;
+  padding-right: 10px;
+}
+
+#copyright {
+  font-size: 16px;
+  letter-spacing: .08em;
+  font-weight: 500;
+  padding-left: 10px;
+}
+#container {
+  position: relative;
+  height: 100vh;
+}
+
+
+
+

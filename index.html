@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,25 +11,44 @@
   <title>Moodifier</title>
 </head>
 <!-- ('hidden_div', this) -->
+
 <body>
-  <h1>Hi</h1>
-  <div id="select">
-    <select name="select_category" id="target" onchange="showDiv()">
-      <option value="">Select...</option>
-      <option value="amrap">AMRAP</option>
-      <option value="forTime">For Time</option>
-      <option value="benchmarks">Benchmarks</option>
-      <option value="mixed">Mixed</option>
-    </select>
-    <div id="workoutDescription">
+  <div id="container">
+    <div id="page-content">
+      <header>
+        <a id="home-link" href="index.html"><img src="images/dumbell.png" id="logo" alt="barbel-image"></a>
+
+      </header>
+
+      <div>
+        <h1>Hello</h1>
+      </div>
+      <div id="select">
+
+        <select name="select_category" id="target" onchange="selectWorkout()">
+          <option value="">Select...</option>
+          <option value="amrap">AMRAP</option>
+          <option value="forTime">For Time</option>
+          <option value="benchmarks">Benchmarks</option>
+          <option value="mixed">Mixed</option>
+        </select>
+        <div id="workoutDescription">
+        </div>
+        <button id="go">GO!</button>
+        <div id="workoutDisplay"></div>
+      </div>
+      <div id="timer">
+        <div class="values"></div>
+      </div>
+      <button id="test-button">TEST API</button>
     </div>
-    <button id="go">GO!</button>
-    <div id="workoutDisplay"></div>
+    <footer>
+      <p id="copyright">&copy;Moodifier 2019</p>
+
+      <p class="message">Created with <span class="hearts">&hearts;</span> by <span class="name">Svetla Syrimis</span>
+      </p>
+    </footer>
   </div>
-  <div id="timer">
-      <div class="values"></div>
-  </div>
-  <button id="test-button">TEST API</button>
 </body>
 
 </html>

@@ -1,3 +1,6 @@
+let copiedArray;
+
+
 const testButton = document.querySelector('#test-button');
 
 
@@ -219,9 +222,12 @@ let workoutDescriptions = {
   "mixed": "This category contains a list with a combination of AMRAP, For Time and EMOM workouts. EMOM stands for 'every minute on the minute' and is a type of interval workout where you perform a specific exercise at the start of every minute and the goal is to complete the reps within that minute."
 
 };
-const showDiv = () => {
+const selectWorkout = () => {
   let workoutDescriptionDiv = document.getElementById('workoutDescription');
   let selectValue = document.getElementById("target").value;
+  copiedArray = undefined;
+  renderWorkout(undefined);
+  
   switch (selectValue) {
     case "amrap":
       workoutDescriptionDiv.innerHTML = workoutDescriptions.amrap;
@@ -238,49 +244,52 @@ const showDiv = () => {
 
     default:
       workoutDescriptionDiv.innerHTML = "";
-      workoutDisplay.innerHTML = "";
       break;
   }
 }
 const renderWorkout = (workout) => {
   let workoutDisplay = document.getElementById("workoutDisplay");
-  workoutDisplay.innerHTML = `
+  if (workout === undefined) {
+    workoutDisplay.innerHTML = "";
+  } else {
+    workoutDisplay.innerHTML = `
       <p>${workout.type}</p>
       <p>${workout.instructions}</p>
       <p>${workout.ex}</p>
       `;
+  }
 }
 
 
 // copying the array and removing from it ensures you will experience all array items and by checking the last item ensures we won't have duplicate items between full loops
-let copiedArray;
+
 // last item to ensure there are no duplicates between runs
 let lastItem;
 const randomizer = (array) => {
-    // copy the array if the array is empty
-    if (copiedArray === undefined ||
-    copiedArray.length === 0){
-      copiedArray = array.slice();
-    }
-    // get a random item from the array
-    let randomIndex = Math.floor(Math.random() * copiedArray.length);
-    let randomItem = copiedArray[randomIndex];
+  // copy the array if the array is empty
+  if (copiedArray === undefined ||
+    copiedArray.length === 0) {
+    copiedArray = array.slice();
+  }
+  // get a random item from the array
+  let randomIndex = Math.floor(Math.random() * copiedArray.length);
+  let randomItem = copiedArray[randomIndex];
 
-    // if the item is equal to the last item keep looking for a random item
-    while(randomItem===lastItem){
-      randomIndex = Math.floor(Math.random() * copiedArray.length);
-      randomItem = copiedArray[randomIndex];
-    }
-    // remove the random item from the copied array
-    copiedArray.splice(randomIndex, 1);
-    //Assign the value of randomItem to lastItem so we don't have duplicates between full loops
-    lastItem = randomItem;
-    return randomItem;
+  // if the item is equal to the last item keep looking for a random item
+  while (randomItem === lastItem) {
+    randomIndex = Math.floor(Math.random() * copiedArray.length);
+    randomItem = copiedArray[randomIndex];
+  }
+  // remove the random item from the copied array
+  copiedArray.splice(randomIndex, 1);
+  //Assign the value of randomItem to lastItem so we don't have duplicates between full loops
+  lastItem = randomItem;
+  return randomItem;
 }
 
 const generateWorkout = () => {
   let selectValue = document.getElementById("target").value;
-  
+
   switch (selectValue) {
     case "amrap":
       renderWorkout(randomizer(amrap));
@@ -296,9 +305,10 @@ const generateWorkout = () => {
       break;
 
     default:
-      document.getElementById("workoutDisplay").innerHTML = "";
+      renderWorkout(undefined);
       break;
   }
+
 }
 
 const goButton = document.querySelector("#go");
