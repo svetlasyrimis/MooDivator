@@ -10,17 +10,87 @@ axios.defaults.headers.common = { 'Authorization': `Token token=${apikey}` };
 // let quoteKeywords = ["goals", "attitude", "fear", "strength"];
 // let quotePageCounter = 1;
 
-let urls = ["https://favqs.com/api/quotes/?filter=attitude&page=2","https://favqs.com/api/quotes/?filter=goals&page=2","https://favqs.com/api/quotes/?filter=strength&page=2", "https://favqs.com/api/quotes/?filter=perseverance&page=3","https://favqs.com/api/quotes/?filter=ambition&page=1", "https://favqs.com/api/quotes/?filter=progress&page=1"]
+let urls = ["https://favqs.com/api/quotes/?filter=attitude&page=2", "https://favqs.com/api/quotes/?filter=goals&page=1", "https://favqs.com/api/quotes/?filter=strength&page=1", "https://favqs.com/api/quotes/?filter=perseverance&page=1", "https://favqs.com/api/quotes/?filter=ambition&page=1", "https://favqs.com/api/quotes/?filter=progress&page=1"]
 
-// const getQuotes = () => {
+// Mocking some quote urls
+// const url = `https://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=25`;
+// const numberOfUrls = 5;
+// const urls = Array(numberOfUrls).fill(url);
+
+const getQuotes = async () => {
+  const completeQuotesArray = [];
+  // Request all URLs in parallels to get all the data at the same time 
+  const quotesPromises = await Promise.all(urls.map(url => axios.get(url)));
+
+  // This is the returned array with resolved (or rejected) promise values
+  // console.log(quotesPromises); - it works, array of objects
+  for (const promiseValues of quotesPromises) {
+    const quotesArray = promiseValues.data.quotes;
+    //collect all the quotes and store them in array
+    for (let i = 0; i < quotesArray.length; i++) {
+      const quote = quotesArray[i].body;
+      if (quote.length < 150) {
+        completeQuotesArray.push(quote);
+        // console.log(completeQuotesArray)
+      }
+    }
+  }
+  return completeQuotesArray;
+}
+
+//works and puts all the quotes on the screen, first it awaits all the quotesPromises by calling the function renderQuotes 
+// const renderQuote = async () => {
+//   const quotes = await getQuotes();
+
+//   let quotesHtml = '';
+//   quotes.forEach(quote => {
+//     quotesHtml += quote;
+//   });
+//   document.querySelector('.quoteDisplay').innerHTML = quotesHtml;
+// }
+
+
+//works
+const renderQuote = async () => {
+  const quotes = await getQuotes();
+
+  let quoteDisplay = document.querySelector(".quoteDisplay");
+  quoteDisplay.style.font = "bold"
+  // let finalList = quotes.map(quote => quote)
+  window.setInterval(randomQuote = () => {
+    console.log(quotes);
+    let randomIndex = Math.floor(Math.random() * quotes.length);
+    console.log(randomIndex);
+
+    // let randomQuote = quotes[randomIndex];
+    quoteDisplay.innerHTML = `
+     <p>"${quotes[randomIndex]}"</p>`
+  }, 3000);
+}
+// renderQuote();
+
+// Render the quotes and displays them all on the screen at the same time 
+
+// const renderQuotes = async () => {
+//   const quotes = await getQuotes();
+//   let quotesHtml = '';
+//   quotes.forEach(quote => {
+//     quotesHtml += quote;
+//   });
+//   document.querySelector('#quotes').innerHTML = quotesHtml;
+// }
+
+
+
+//Previous solution for parallel get requests doesn't work 
+// const getQuotes = async () => {
 //   let completeQuotesArray = [];
 //   const quotesPromises = urls.map(async url => {
 //     const response = await axios.get(url);
-//     console.log(response);
 //     return response.data.quotes;
 //   });
 //   for (const quotesPromise of quotesPromises) {
-//     let quotesArray = await quotesPromise;
+//     let quotesArray = quotesPromise;
 //     for (let i = 0; i < quotesArray.length; i++) {
 //       let quote = quotesArray[i].body;
 //       // console.log(quote)
@@ -28,10 +98,10 @@ let urls = ["https://favqs.com/api/quotes/?filter=attitude&page=2","https://favq
 //         completeQuotesArray.push(quote);
 //       }
 //       // console.log(completeQuotesArray.length)
-      
+
 //       // console.log(results)
 //     }
-    
+
 //     // console.log(completeQuotesArray.length)
 //     // renderQuote({name : quotesArray[0].body}) 
 //   }
@@ -40,6 +110,8 @@ let urls = ["https://favqs.com/api/quotes/?filter=attitude&page=2","https://favq
 
 
 
+
+//old render function
 // const renderQuote = (quote) => {
 //   let quoteDisplay = document.querySelector(".quoteDisplay")
 //   const el = document.createElement('div');
@@ -79,7 +151,7 @@ let urls = ["https://favqs.com/api/quotes/?filter=attitude&page=2","https://favq
 //test API button function 
 // testButton.addEventListener('click', async () => {
 //   const response = await axios.get(`https://favqs.com/api/quotes/?filter=attitude&page=2`);
-  //filters - goals,attitude,fear,inspiration,power,perseverance,ambition,progress,persistence
+//filters - goals,attitude,fear,inspiration,power,perseverance,ambition,progress,persistence
 
 
 let amrap = [
@@ -292,22 +364,32 @@ let workoutDescriptions = {
 };
 const selectWorkout = () => {
   let workoutDescriptionDiv = document.getElementById('workoutDescription');
+  workoutDescriptionDiv.innerHTML = '';
+  workoutDescriptionDiv.classList.add("description")
+  let pin = document.createElement("img");
+  pin.setAttribute("src", "./images/pin.png")
+  pin.setAttribute("width", "30px");
+  pin.setAttribute("height", "30px");
+  
+  workoutDescriptionDiv.appendChild(pin);
+
   let selectValue = document.getElementById("target").value;
   copiedArray = undefined;
   renderWorkout(undefined);
 
   switch (selectValue) {
     case "amrap":
-      workoutDescriptionDiv.innerHTML = workoutDescriptions.amrap;
+      workoutDescriptionDiv.innerHTML +=
+        `<p>${workoutDescriptions.amrap}<p>`;
       break;
     case "forTime":
-      workoutDescriptionDiv.innerHTML = workoutDescriptions.forTime;
+      workoutDescriptionDiv.innerHTML += `<p>${workoutDescriptions.forTime}</p>`;
       break;
     case "benchmarks":
-      workoutDescriptionDiv.innerHTML = workoutDescriptions.benchmarks;
+      workoutDescriptionDiv.innerHTML += `<p>${workoutDescriptions.benchmarks}</p>`;
       break;
     case "mixed":
-      workoutDescriptionDiv.innerHTML = workoutDescriptions.mixed;
+      workoutDescriptionDiv.innerHTML += `<p>${workoutDescriptions.mixed}</p>`;
       break;
 
     default:
@@ -321,9 +403,10 @@ const renderWorkout = (workout) => {
     workoutDisplay.innerHTML = "";
   } else {
     workoutDisplay.innerHTML = `
-      <p>${workout.type}</p>
-      <p>${workout.instructions}</p>
-      <p>${workout.ex}</p>
+      <p class="workout">${workout.type}</p>
+      <p class="workout">${workout.instructions}</p>
+      <p class="workout">${workout.ex}</p>
+      <button id="start">Start</button>
       `;
   }
 }
@@ -391,3 +474,6 @@ const createTimer = () => {
     div.innerHTML = timer.getTimeValues().toString(['hours', 'minutes', 'seconds', 'secondTenths']);
   });
 }
+
+// let startButton = document.getElementById('start');
+// startButton.addEventListener("click", createTimer)

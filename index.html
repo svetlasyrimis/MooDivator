@@ -16,39 +16,52 @@
   <div id="container">
     <div id="page-content">
       <header>
-        <a id="home-link" href="index.html"><img src="images/dumbell.png" id="logo" alt="barbel-image"></a>
+          <a href="index.html">
+              <img id="logo" src="images/dumbell.png" alt="Home">
+            </a>
 
       </header>
 
-      <div>
-        <h1>Hello</h1>
-      </div>
-      <div id="select">
 
-        <select name="select_category" id="target" onchange="selectWorkout()">
-          <option value="">Select...</option>
-          <option value="amrap">AMRAP</option>
-          <option value="forTime">For Time</option>
-          <option value="benchmarks">Benchmarks</option>
-          <option value="mixed">Mixed</option>
-        </select>
-        <div id="workoutDescription">
+      <h1>Hello<button id="test-button">TEST API</button></h1>
+
+
+      <div id="select-box">
+        <div class="box">
+
+          <select name="select_category" id="target" onchange="selectWorkout()">
+            <option value="">Select...</option>
+            <option value="amrap">AMRAP</option>
+            <option value="forTime">For Time</option>
+            <option value="benchmarks">Benchmarks</option>
+            <option value="mixed">Mixed</option>
+          </select>
+          <div id="workoutDescription">
+          </div>
+
         </div>
+
+
+
         <div class="quoteDisplay"></div>
-        <button id="go">GO!</button>
+        <div class="greenButton"><button id="go">GO!</button></div>
+
         <div id="workoutDisplay"></div>
+
+
       </div>
+
+
       <div id="timer">
         <div class="values"></div>
       </div>
-      <button id="test-button">TEST API</button>
-    </div>
-    <footer>
-      <p id="copyright">&copy;Moodifier 2019</p>
+      <footer>
+        <p id="copyright">&copy;Moodifier 2019</p>
 
-      <p class="message">Created with <span class="hearts">&hearts;</span> by <span class="name">Svetla Syrimis</span>
-      </p>
-    </footer>
+        <p class="message">Created with <span class="hearts">&hearts;</span> by <span class="name">Svetla Syrimis</span>
+        </p>
+      </footer>
+    </div>
   </div>
 </body>
 
