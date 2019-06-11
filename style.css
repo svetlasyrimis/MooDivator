@@ -1,202 +1,190 @@
 body {
-  margin: 0;
-  /* font-family: 'Lora', serif; */
-  background-color: #F7F9F9;
-  
-}
-/* .workoutStuff {
-  display: flex;
-  flex-direction: column;
-} */
-img {
-  width: 40px;
-  height: 40px;
-  
-}
-#select-box {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  flex-wrap: nowrap;
-}
-/* add a span yellow color  */
-#workoutDescription { 
-  min-height: 100px;
-  min-width: 400px;
-  
+    margin: 0;
+    /* font-family: 'Lora', serif; */
+    background-color: #F7F9F9;
+    /*height: 98vh;*/
+    /*max-height: 100vh;*/
 
-  /* padding-top: 10px;
-  padding-left: 10px;
-  margin-top: 10px;
-  letter-spacing: 1px;
-  font-family: Arial;
-  font-weight: bold; */
-  /* border: #399CE9; */
 }
 
-/* p {
-  box-shadow: 0px 4px 8px 6px rgba(0, 0, 0, 0.5);
-} */
+.logo img {
+    width: 70px;
+    height: 70px;
+    padding-left: 10px;
+    padding-right: 10px;
+    /*margin-left: 10px;*/
+    /*margin-bottom: 5px;*/
+    text-decoration: none !important;
+}
+
+.logo:hover {
+    background-color: #FFE633;
+    /* barbel colors: green #9CC055,blue #399CE9; yellow; #FFE633; */
+}
+
+.pin {
+    width: 30px;
+    height: 30px;
+
+}
+
+
+#full-page-content {
+    width: 100vw;
+    height: 98vh;
+    max-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    /*flex-wrap: wrap;*/
+}
+
+.header {
+    background-color: #59C39F;
+    height: 70px;
+    width: 100vw;
+    display: flex;
+    top: 0;
+}
+
+#main-box {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer {
+
+    width: 100vw;
+    background-color: #59C39F;
+    display: flex;
+    height: 70px;
+    justify-content: space-between;
+    color: #F7F9F9;
+    align-self: flex-end;
+    align-items: center;
+    /* padding-top: 20px; */
+}
+
+.hidden {
+    display: none !important;
+}
+
+.box {
+    padding-top: 10px;
+    width: 60vw;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.2em;
+    display: flex;
+    flex-direction: column;
+    /* background-color:#FFE633;  */
+}
+
+#workoutSelector {
+    /* // the red color : #D7423F; */
+    border: 2px solid #314749;
+    font-size: 1.2em;
+    flex-grow: 1;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+#go-btn {
+    -webkit-appearance: none;
+    width: 150px;
+    height: 150px;
+    padding: 10px;
+    margin: 5px 0 0 5px;
+    border: 4px solid black;
+    border-radius: 50%;
+    font-size: 3.5em;
+    text-transform: uppercase;
+    font-weight: bold;
+    background-color: #59C39F;
+    color: #F7F9F9;
+    align-self: center;
+}
+
+.timer {
+    display: flex;
+    flex-direction: row;
+}
+
+.timer button {
+    flex-grow: 1;
+}
 
 .description {
-  /* position: relative; */
-  box-shadow: 0px 4px 8px 6px rgba(0, 0, 0, 0.5);
-  /* width: 280px; */
-  /* min-height: 300px;
-  min-width: 300px; */
-  padding: 10px 10px 0px 10px;
-  margin-top: 10px;
-  letter-spacing: 1px;
-  font-family: Arial;
+    box-shadow: 0 4px 8px 6px rgba(0, 0, 0, 0.5);
+    padding: 0 10px 0 10px;
+    margin-top: 10px;
+    letter-spacing: 1px;
+    font-family: Arial;
 }
-#workoutDisplay {
-  padding-top: 10px;
-  padding-right: 10px;
-  width: 300px;
-  height: 300px;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 1.2em;
-  
 
-}
- /* #399CE9; yellow; #FFE633;
+
+/* #399CE9; yellow; #FFE633;
 } */
-#target {
-  /* // the red color : #D7423F; */
-  /* height: 0px; */
-  position: relative;
-  border: 2px solid #314749;
-  font-size: 1.2em;
-  min-width: 200px;
-  padding-bottom: 10px;
-  margin-bottom: 10px;
-  -webkit-border-radius: 5px;
-   -moz-border-radius: 5px;
-   border-radius: 5px;
-  overflow: hidden; 
-}
-#test-button {
-  padding: 10px;
-  color: red;
-  border: 1px solid black;
-  border-radius: 30%;
-  max-height: 50px;
-}
-.workout {
-  
 
+
+.timer-btns {
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin: 2px;
+    color: #F7F9F9;
 }
+
 #start {
-  padding: 10px;
-  color: red;
-  border: 1px solid black;
-  border-radius: 30%;
-  text-transform: uppercase;
-  font-weight: bold;
-  background-color: #59C39F;
-  color: #F7F9F9;
+    background-color: #59C39F;
+}
 
+#pause {
+    background-color: #399CE9;
 }
-a {
-  text-decoration: none;
+
+#stop {
+    background-color: #D7423F;
 }
-/* .square {
-  position: relative;
-  width: 50px;
-} */
-.box {
-  padding-top: 10px;
-  width: 300px;
-  height: 300px;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 1.2em;
-  /* background-color:#FFE633;  */
+
+#reset {
+    color: black !important;
+    background-color: #FFE633;
 }
+
+
 .greenButton {
-  width: 300px;
-  height: 300px;
-  justify-content: center;
-}
-#go {
-  -webkit-appearance: none;
-  width: 180px;
-  height: 180px;
-  padding: 10px;
-  margin: 10px 0 0 10px;
-  border: 5px solid black;
-  border-radius: 50%;
-  font-size: 4em;
-  text-transform: uppercase;
-  font-weight: bold;
-  background-color: #59C39F;
-  color: #F7F9F9;
-  align-self: center;
-  
-
- 
-}
-header {
-  background-color: #59C39F;
-  height: 50px;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  top: 0;
-  /* position: fixed; */
-
-   /* top: 0; 
-  z-index: 1;   */
-}
-#page-content {
-  padding-bottom: 2.5rem;  
-  
-}
-
-#logo {
-  width: 70px;
-  height: 70px;
-  margin-left: 10px;
-  margin-bottom: 5px;
+    width: 300px;
+    height: 300px;
 
 }
-#logo:hover {
-  background-color: #FFE633;
-  /* barbel colors: green #9CC055,blue #399CE9; yellow; #FFE633; */
-}
 
-footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  background-color: #59C39F;
-  display: flex;
-  height: 3.5rem;;
-  justify-content: space-between;
-  color: #F7F9F9;
-  /* padding-top: 20px; */
-  
-}
+
 .hearts {
-  color: rgb(236, 71, 71);
-  /* font-size: 30px; */
+    color: rgb(236, 71, 71);
+    /* font-size: 30px; */
 }
+
 .name {
-  font-size: 16px;
-  letter-spacing: .08em;
-  font-weight: 500;
-  padding-right: 10px;
+    font-size: 16px;
+    letter-spacing: .08em;
+    font-weight: 500;
+    padding-right: 10px;
 }
 
 #copyright {
-  font-size: 16px;
-  letter-spacing: .08em;
-  font-weight: 500;
-  padding-left: 5px;
+    font-size: 16px;
+    letter-spacing: .08em;
+    font-weight: 500;
+    padding-left: 5px;
 }
-#container {
-  position: relative;
-  height: 100vh;
-}
+
 
 
 
