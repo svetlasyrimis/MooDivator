@@ -14,15 +14,15 @@ body {
 
 .logo img {
     width: 70px;
-    height: 70px;
+    /* height: 70px; maybe yes */
     padding-left: 10px;
     padding-right: 10px;
     text-decoration: none !important;
 }
 #crossfit {
    padding-top: 6px;
-   height: 80%;
-   width: auto;
+   /* height: 80%; */
+   /* width: auto; */
   
 }
 .box select {
@@ -52,17 +52,16 @@ hr {
 
 #full-page-content {
     width: 100vw;
-    height: 100vh;
+    /* height: 100vh; */
     /* max-height: 100vh; */
     display: flex;
     flex-direction: column;
     
-    /*flex-wrap: wrap;*/
 }
 
 .header {
     background-color: #59C39F;
-    height: 70px;
+    height: 90px;
     width: 100vw;
     display: flex;
     justify-content: space-between;
