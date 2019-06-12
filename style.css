@@ -1,13 +1,15 @@
 body {
     margin: 0;
-    /* background-color: #F7F9F9; */
     background-color: #cfdef3;
-    /*height: 98vh;*/
-    /*max-height: 100vh;*/
+    overflow-x: hidden;
+    overflow-y: auto;
+    /* background-color: #F7F9F9; */  
 }
 
 .logo {
     margin-left: 5%;
+    margin-right: 5%;
+    
 }
 
 .logo img {
@@ -15,37 +17,28 @@ body {
     height: 70px;
     padding-left: 10px;
     padding-right: 10px;
-    /*margin-left: 10px;*/
-    /*margin-bottom: 5px;*/
     text-decoration: none !important;
 }
-
+#crossfit {
+   padding-top: 6px;
+   height: 80%;
+   width: auto;
+  
+}
 .box select {
-    background-color: #ffa69e;
-    background-image: linear-gradient(315deg, #ffa69e 0%, #5d4954 74%);
-    padding: 10px;
-    border: none;
-    font-size: 20px;
-    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
-    -webkit-appearance: button;
-    outline: none;
+  border: none;
+  font-size: 16px; 
 }
 
-.box:before {
-    /* position: absolute;
-    content: '';
-    top: 0;
-    right: 0;
-    width: 50px;
-    height: 50px;
-    background: #DC776B; */
-
+hr {
+  border: 2px solid black;
+  border-style: none none dotted; 
 }
 
-.box::hover:before {
+#workoutDescription {
+  background-color: #F7F9F9 !important;
 
 }
-
 .logo:hover {
     background-color: #FFE633;
     /* barbel colors: green #9CC055,blue #399CE9; yellow; #FFE633; */
@@ -63,6 +56,7 @@ body {
     /* max-height: 100vh; */
     display: flex;
     flex-direction: column;
+    
     /*flex-wrap: wrap;*/
 }
 
@@ -97,6 +91,7 @@ h1 {
     flex-direction: column;
     align-items: center;
     /* background-color:  #cfdef3; */
+    
 }
 
 .footer {
@@ -107,9 +102,8 @@ h1 {
     height: 70px;
     justify-content: space-around;
     color: #F7F9F9;
-    /* align-self: flex-end; */
+    font-weight: bold;
     align-items: center;
-    /* padding-top: 20px; */
 }
 
 .hidden {
@@ -147,8 +141,8 @@ h1 {
     width: 150px;
     height: 150px;
     padding: 10px;
-    margin: 5px 0 0 5px;
-    border: 4px solid black;
+    margin: 15px 0 30px 5px;
+    border: 2.5px solid black;
     border-radius: 50%;
     font-size: 3.5em;
     cursor: pointer;
@@ -223,19 +217,9 @@ h1 {
     background-color: #59C39F;
 }
 
-/* #pause {
-    background-color: #399CE9;
-} */
-
 #stop {
     background-color: #D7423F;
 }
-
-/* #reset {
-    color: black !important;
-    background-color: #FFE633;
-} */
-
 
 .greenButton {
     width: 300px;
@@ -246,7 +230,7 @@ h1 {
 
 .hearts {
     color: rgb(236, 71, 71);
-    /* font-size: 30px; */
+    font-size: 15px;
 }
 
 .name {
@@ -279,6 +263,7 @@ p {
 
 a {
     text-decoration: none;
+    
 }
 
 #copyright {
@@ -297,9 +282,29 @@ and (max-width: 600px) {
     .footer {
         display: block;
         text-align: center;
-        height: 100%;
+        height: 20%;
         margin-top: 40px;
-        padding-bottom: 20px;
+        bottom: 0;
+        padding-bottom: 10px;
     }
+    #copyright {
+      margin-top: 20px;
+    }
+    h1 {
+      font-size: 20px;
+    }
+    #workoutSelector {
+      font-size: 20px;
+    }
+    #go-btn {
+      width: 130px;
+      height: 130px;
+      font-size: 3rem;
+      
+    }
+
+
+    
+    
 
 }

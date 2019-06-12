@@ -7,7 +7,7 @@ const apikey = "a085bc67c698a7064a5818cd2220822d";
 axios.defaults.headers.common = { 'Authorization': `Token token=${apikey}` };
 
 
-let urls = ["https://favqs.com/api/quotes/?filter=attitude&page=2", "https://favqs.com/api/quotes/?filter=goals&page=1", "https://favqs.com/api/quotes/?filter=goals&page=1", "https://favqs.com/api/quotes/?filter=perseverance&page=1", "https://favqs.com/api/quotes/?filter=ambition&page=1", "https://favqs.com/api/quotes/?filter=faith&page=1"];
+let urls = ["https://favqs.com/api/quotes/?filter=attitude&page=2", "https://favqs.com/api/quotes/?filter=goals&page=1", "https://favqs.com/api/quotes/?filter=life&page=1", "https://favqs.com/api/quotes/?filter=perseverance&page=1", "https://favqs.com/api/quotes/?filter=ambition&page=1", "https://favqs.com/api/quotes/?filter=faith&page=1", "https://favqs.com/api/quotes/?filter=future&page=2"];
 
 let amrap = [
   {
@@ -118,42 +118,42 @@ let forTime = [
 
 let benchmarks = [
   {
-    type: "Annie",
+    type: `"Annie"`,
     instructions: "As many round as possible in 20 min of:",
     ex: "50 Double Unders, 50 Sit-ups"
   },
   {
-    type: "Karen",
+    type: `"Karen"`,
     instructions: "For Time: ",
     ex: "150 Wall Ball Shots"
   },
   {
-    type: "Kelly",
+    type: `"Kelly"`,
     instructions: "5 Rounds For Time:",
     ex: "400 meters Run, 30 Box Jump, 30 Wall Ball Shots"
   },
   {
-    type: "Nancy",
+    type: `"Nancy"`,
     instructions: "5 Rounds For Time:",
     ex: "400m Run, 15 Overhead Squats "
   },
   {
-    type: "Isabel",
+    type: `"Isabel"`,
     instructions: "For Time:",
     ex: "30 Snatches (choose a challenging weight) "
   },
   {
-    type: "Grace",
+    type: `"Grace"`,
     instructions: "For Time:",
     ex: "30 Clean and Jerk (choose a challenging weight)"
   },
   {
-    type: "Fran",
+    type: `"Fran"`,
     instructions: "For Time (perform the exercises one after another until you complete the prescribed number of rounds.): ",
     ex: "21-15-9 Thrusters & Pull ups"
   },
   {
-    type: "Cindy",
+    type: `"Cindy"`,
     instructions: "As many round as possible in 20 min of:",
     ex: "5 Pull-ups, 10 Push-ups, 15 Air Squats"
   },
@@ -164,7 +164,7 @@ let mixed = [
   {
     type: "Chipper",
     instructions: "Complete the reps in the order below:",
-    ex: "100 Double Unders, 50 Wall balls, 40 Kettlebell Swings,30 calorie row, 20 burpees, 10 thrusters"
+    ex: "100 Double Unders, 50 Wall balls, 40 Kettlebell Swings, 30 calorie row, 20 burpees, 10 thrusters"
   },
   {
     type: "AMRAP",
@@ -189,7 +189,7 @@ let mixed = [
   },
   {
     type: "EMOM 15min",
-    instructions: "Every Minute on the Minute for 5 rounds perform",
+    instructions: "Every Minute on the Minute for 5 rounds:",
     ex: "200m Row, 12 Dumbell Snatch 12 Max Pull-ups"
   },
   {
@@ -219,7 +219,6 @@ let workoutDescriptions = {
 };
 
 
-
 const getQuotes = async () => {
   const completeQuotesArray = [];
   // Request all URLs in parallels to get all the data at the same time
@@ -239,15 +238,17 @@ const getQuotes = async () => {
   return completeQuotesArray;
 };
 
-
+//renderQuote function to display a random quote from the list with quotes
 const renderQuote = async () => {
+  //try and catch - catching the errors if too many API requests are made
   try {
+    //collecting the quotes 
     const quotes = await getQuotes();
-
+    //set up the display
     let quoteDisplay = document.getElementById("quoteDisplay");
 
     quoteDisplay.classList.add("quotes");
-
+    //write a separate function to cycle through the array(initally I had it set up recursion but I realised this is not what I wanted)
     const randomQuote = () => {
       let randomIndex = Math.floor(Math.random() * quotes.length);
       console.log(randomIndex);
@@ -262,7 +263,7 @@ const renderQuote = async () => {
 
 };
 
-
+//selectWorkout function 
 const selectWorkout = () => {
   let workoutDescriptionDiv = document.getElementById('workoutDescription');
 
@@ -272,7 +273,7 @@ const selectWorkout = () => {
 
   workoutDescriptionDiv.classList.remove("hidden");
 
-
+  //to switch between workout description and the workout + timer itself by using hidden class 
   let workoutDescription = document.getElementById("workoutType");
   let workoutInstructions = document.getElementById("workoutInstructions");
   let workoutExercise = document.getElementById("workoutExercise");
@@ -317,11 +318,14 @@ const renderWorkout = (workout) => {
     let timerContainer = document.getElementById("timerContainer");
 
     workoutInstructions.classList.remove("hidden");
+    workoutInstructions.style.fontStyle = "oblique";
+    workoutInstructions.style.fontWeight = "bold";
     workoutExercise.classList.remove("hidden");
     timerContainer.classList.remove("hidden");
 
     workoutDescription.innerHTML = workout.type;
     workoutInstructions.innerHTML = workout.instructions;
+    workoutDescription.innerHTML += `<hr>`;
     workoutExercise.innerHTML = workout.ex;
 
     setupTimerButtons();
@@ -406,7 +410,7 @@ const setupTimerButtons = () => {
     // renderQuote();
     // randomQuote();
     window.clearInterval(quoteScreen);
-    quoteScreen = window.setInterval(renderQuote, 7000);
+    quoteScreen = window.setInterval(renderQuote, 8000);
   });
 
   stopTimerBtn.addEventListener('click', (e) => {
