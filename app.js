@@ -268,13 +268,14 @@ const selectWorkout = () => {
   let workoutDescriptionDiv = document.getElementById('workoutDescription');
 
   let selectValue = document.getElementById("workoutSelector").value;
+  //it has to be set inside this function so whenever the user switches between workout type and presses GO button the program is cycling from the selected type explicitly
   copiedArray = undefined;
 
 
   workoutDescriptionDiv.classList.remove("hidden");
 
   //to switch between workout description and the workout + timer itself by using hidden class 
-  let workoutDescription = document.getElementById("workoutType");
+  let workoutType = document.getElementById("workoutType");
   let workoutInstructions = document.getElementById("workoutInstructions");
   let workoutExercise = document.getElementById("workoutExercise");
   let timerContainer = document.getElementById("timerContainer");
@@ -284,19 +285,19 @@ const selectWorkout = () => {
 
   switch (selectValue) {
     case "amrap":
-      workoutDescription.innerHTML = workoutDescriptions.amrap;
+      workoutType.innerHTML = workoutDescriptions.amrap;
       break;
     case "forTime":
-      workoutDescription.innerHTML = workoutDescriptions.forTime;
+      workoutType.innerHTML = workoutDescriptions.forTime;
       break;
     case "benchmarks":
-      workoutDescription.innerHTML = workoutDescriptions.benchmarks;
+      workoutType.innerHTML = workoutDescriptions.benchmarks;
       break;
     case "mixed":
-      workoutDescription.innerHTML = workoutDescriptions.mixed;
+      workoutType.innerHTML = workoutDescriptions.mixed;
       break;
     default:
-      workoutDescription.innerHTML = "";
+      workoutType.innerHTML = "";
       workoutDescriptionDiv.classList.add("hidden");
       break;
   }
@@ -348,7 +349,7 @@ const randomizer = (array) => {
   let randomIndex = Math.floor(Math.random() * copiedArray.length);
   let randomItem = copiedArray[randomIndex];
 
-  // if the item is equal to the last item keep looking for a random item
+  // if the item is equal to the last item keep looking for a random item(to avoid the same items in between loops)
   while (randomItem === lastItem) {
     randomIndex = Math.floor(Math.random() * copiedArray.length);
     randomItem = copiedArray[randomIndex];

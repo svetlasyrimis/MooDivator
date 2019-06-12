@@ -1,3 +1,9 @@
+*{
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0); 
+  -webkit-tap-highlight-color: transparent; 
+  outline: none !important;
+}
+
 body {
     margin: 0;
     background-color: #cfdef3;
@@ -61,7 +67,7 @@ hr {
 
 .header {
     background-color: #59C39F;
-    height: 90px;
+    /* height: 90px; */
     width: 100vw;
     display: flex;
     justify-content: space-between;
@@ -75,6 +81,7 @@ h1 {
     text-align: center;
     margin-left: 10px;
     margin-right: 10px;
+    width: 60vw;
 }
 
 .quotes {
@@ -275,7 +282,7 @@ a {
 
 /* cool red - #BA5350 */
 
-
+/* Iphone X and Pixel 2 */
 @media only screen
 and (max-width: 600px) {
     .footer {
@@ -302,8 +309,25 @@ and (max-width: 600px) {
       
     }
 
+}
+/* Desktop/Laptop/Tablet */
+@media only screen 
+  and (min-width: 601px)  { 
+    #full-page-content {
+      height: 100vh; 
+      
 
-    
-    
-
+    }
+    .header {
+      height: 70px; 
+    }
+}
+/* Galaxy Note 9 */
+@media screen 
+  and (max-width: 600px)
+  and (min-height: 700px) 
+  {
+    #full-page-content {
+      height: 92vh; 
+    }
 }

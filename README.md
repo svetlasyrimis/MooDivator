@@ -14,3 +14,5 @@
 ## Stretch goals: 
 1. Feature to save completed workouts to user's browser.
 2. Adding a second API to generate images along with the quotes.
+
+
