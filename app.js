@@ -2,7 +2,7 @@
 let workoutTypes = {
 	"amrap": "AMRAP is abbreviation for 'as many rounds/reps as possible'.The main goal of an AMRAP workout is to do a set list of moves, mostly bodyweight exercises, as many times as you can in a set amount of time.",
 	"forTime": "For Time workouts, as the name suggests, are to be performed as fast as possible. Usually they include bodyweight exercises combined with weightlifting and powerlifting components.",
-	"benchmarks": "The Crossfit Girls are benchmark workouts designed to take a snapshot of your current fitness level. These workouts are intense,If you are a beginner, we suggest you first try AMRAP category.",
+	"benchmarks": "The Crossfit Girls are benchmark workouts designed to take a snapshot of your current fitness level. These workouts are intense and hard,if you are a beginner, we suggest you first try AMRAP category.",
 	"mixed": "This category contains a list with a combination of AMRAP, For Time and EMOM workouts. EMOM stands for 'every minute on the minute' and is a type of interval workout where you perform a specific exercise at the start of every minute and the goal is to complete the reps within that minute."
 };
 let amrap = [
@@ -237,8 +237,8 @@ const renderQuote = async () => {
       let randomIndex = Math.floor(Math.random() * quotes.length);
       console.log(randomIndex);
 			quoteDisplay.innerHTML = `"${quotes[randomIndex]}"`;
-		};
-		randomQuote();
+    };
+    randomQuote();
 	} catch (e) {
 		console.log(e)
 	}
@@ -247,7 +247,7 @@ const renderQuote = async () => {
 
 // Timer
 let timer = new Timer();
-// Reference to EasyTimer jq library -  https://albert-gonzalez.github.io/easytimer.js/
+// Reference to EasyTimer js library -  https://albert-gonzalez.github.io/easytimer.js/
 const setupTimerButtons = () => {
 	let startTimerBtn = document.getElementById("start");
 	let stopTimerBtn = document.getElementById("stop");
@@ -259,7 +259,7 @@ const setupTimerButtons = () => {
 			let div = document.getElementById('timerValues');
 			div.innerHTML = timer.getTimeValues().toString(['hours', 'minutes', 'seconds', 'secondTenths']);
 		});
-		renderQuote();
+		// renderQuote();  // - eliminates the initial delay and waiting for the first quoet after the start button is pressed but causes a too fast transition to next quote in some ocassions 
 		window.clearInterval(quoteScreen);
 		quoteScreen = window.setInterval(renderQuote, 8000);
 	});
@@ -274,7 +274,8 @@ const setupTimerButtons = () => {
 // Workout Type Selector
 let copiedArray;
 const selectWorkoutType = () => {
-	//it has to be set inside this function so whenever the user switches between workout type and presses GO button the program is cycling from the selected type explicitly
+  //it has to be set inside this function so whenever the user switches between workout type and presses GO button the program is cycling from the selected type explicitly
+  window.clearInterval(quoteScreen);
 	copiedArray = undefined;
 	// show big card
 	let workoutCard = document.getElementById('workoutCard');
@@ -368,7 +369,8 @@ const renderWorkout = (workout) => {
 };
 
 const generateWorkout = () => {
-	// reset timer values if GO button is pressed again
+  // reset timer values if GO button is pressed again
+  window.clearInterval(quoteScreen);
 	timer.stop();
 	let timerValues = document.getElementById('timerValues');
 	timerValues.innerHTML = timer.getTimeValues().toString(['hours', 'minutes', 'seconds', 'secondTenths']);
@@ -394,4 +396,5 @@ const generateWorkout = () => {
 };
 
 const goButton = document.querySelector("#go-btn");
-goButton.addEventListener('click', generateWorkout);
+goButton.addEventListener('click',generateWorkout);
+
