@@ -2,78 +2,78 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css?family=Cedarville+Cursive|Patrick+Hand&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/easytimer@1.1.1/src/easytimer.js"></script>
-    <script defer src="app.js"></script>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <title>MooDivator</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://fonts.googleapis.com/css?family=Cedarville+Cursive|Patrick+Hand&display=swap" rel="stylesheet">
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/easytimer@1.1.1/src/easytimer.js"></script>
+	<script defer src="app.js"></script>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<title>MooDivator</title>
 </head>
 
 <body>
 
 <div id="full-page-content">
-    <header class="header">
-        <a class="logo" href="index.html"><span title="Home">
+	<header class="header">
+		<a class="logo" href="index.html"><span title="Home">
             <img src="images/dumbell.png" alt="Home"></span>
-        </a>
-        <a class="logo" href="https://www.crossfit.com/" target="_blank"><span title="CrossFit Website">
+		</a>
+		<a class="logo" href="https://www.crossfit.com/" target="_blank"><span title="CrossFit Website">
           <img src="images/snatch.png" id="crossfit" alt="CrossFit"></span></a>
-    </header>
+	</header>
 
 
-    <div id="main-box">
+	<div id="main-box">
 
-        <h1 id="quoteDisplay" >Welcome to MooDivator! Get ready to sweat and stay motivated through your workout with our
-            inspiring quotes!</h1>
+		<h1 id="quoteDisplay" >Welcome to MooDivator! Get ready to sweat and stay motivated through your workout with our
+			inspiring quotes!</h1>
 
-        <div class="box">
-            <select name="select_category" id="workoutSelector" onchange="selectWorkout()">
-                <option value="">Select...</option>
-                <option value="amrap">AMRAP</option>
-                <option value="forTime">For Time</option>
-                <option value="benchmarks">Benchmarks</option>
-                <option value="mixed">Mixed</option>
-            </select>
-        </div>
+		<div class="box">
+			<select id="workoutTypeSelector" onchange="selectWorkoutType()">
+				<option value="">Select...</option>
+				<option value="amrap">AMRAP</option>
+				<option value="forTime">For Time</option>
+				<option value="benchmarks">Benchmarks</option>
+				<option value="mixed">Mixed</option>
+			</select>
+		</div>
 
-        <div id="workoutDescription" class="box description hidden">
-            <img alt="pin" src="./images/pin.png" class="pin">
-            <p id="workoutType" class="workout"></p>
-            <p id="workoutInstructions" class="workout"></p>
-            <p id="workoutExercise" class="workout"></p>
+		<div id="workoutCard" class="box description hidden">
+			<img alt="pin" src="./images/pin.png" class="pin">
+			<p id="workoutType" class="workout"></p>
+			<p id="workoutInstructions" class="workout"></p>
+			<p id="workoutExercise" class="workout"></p>
 
-            <div id="timerContainer">
-                <div id="timerValues"></div>
-                <div class="timerBtnContainer">
-                    <button class="timer-btns" id="start">Start</button>
-                    <button class="timer-btns" id="stop">Stop</button>
-                </div>
-            </div>
-        </div>
-        <div class="box">
-            <button id="go-btn">GO!</button>
-        </div>
-    </div>
+			<div id="timerContainer">
+				<div id="timerValues"></div>
+				<div class="timerBtnContainer">
+					<button class="timer-btns" id="start">Start</button>
+					<button class="timer-btns" id="stop">Stop</button>
+				</div>
+			</div>
+		</div>
+		<div class="box">
+			<button id="go-btn">GO!</button>
+		</div>
+	</div>
 
-    <footer class="footer">
-        <p id="copyright">&copy;MooDivator 2019</p>
+	<footer class="footer">
+		<p id="copyright">&copy;MooDivator 2019</p>
 
-        <p class="message">Created with <span class="hearts">&hearts;</span> by <span class="name">Svetla
+		<p class="message">Created with <span class="hearts">&hearts;</span> by <span class="name">Svetla
           Syrimis</span>
-        </p>
+		</p>
 
-        <nav class="linkContainer">
-            <a href="https://twitter.com/SvetlaSyrimis" target="_blank">
-                <img src="images/twitter-icon.svg" class="link-icons" alt="Twitter">
-            </a>
-            <a href="https://github.com/svetlasyrimis" target="_blank">
-                <img src="images/github-icon.png" class="link-icons" alt="GitHub">
-            </a>
-        </nav>
-    </footer>
+		<nav class="linkContainer">
+			<a href="https://twitter.com/SvetlaSyrimis" target="_blank">
+				<img src="images/twitter-icon.svg" class="link-icons" alt="Twitter">
+			</a>
+			<a href="https://github.com/svetlasyrimis" target="_blank">
+				<img src="images/github-icon.png" class="link-icons" alt="GitHub">
+			</a>
+		</nav>
+	</footer>
 </div>
 
 </body>
