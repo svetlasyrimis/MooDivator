@@ -17,14 +17,14 @@
 1. Feature to save completed workouts to user's browser.
 2. Adding a second API to generate images along with the quotes.
 
-###06/13/2019 
+### 06/13/2019 
 
-##Approach 
+## Approach 
 I hardcoded all data(workouts) as objects in different arrays based on workout type. Along with that I built a different array with workout description which was to be displayed based on user input and control(select Button). Next step of the process included building few different functions to handle randomizing the workout, based on selected value, and rendering content on the display. They were all used in the main function generateWorkout, triggered by the GO-button click event, which also sets the timer ready. Once the user is ready to start the workout, start button is in charge of start running the timer and rendering quotes on the screen at a set interval of time(8 sec). I got the quotes by using FavQs API, using hardcoded relevant keywords and doing parallel get requests, then sorting the received data by quotes' length. Later on the sorted data(an array) was accessed with another async/await function and produced/rendered a random quote on the screen if called once. I then set up window events on the start and stop button respectively; start click starts the timer, resets the timer, if workout is switched, and displays a quote every 8 sec(+2 sec delay on the first quote), while stop button stops quotes and timer.
 
 ## Link: http://moodivator.surge.sh/
 
-##Installation Instructions: 
+## Installation Instructions: 
 1. Fork and clone this repo.
 2. Open **index.html** in the browser and enjoy your workout.
 
