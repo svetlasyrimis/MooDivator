@@ -1,4 +1,4 @@
-# Moodifier
+# Moodivator
 ## GA Project 1
 
 **_MooDivator_** is a web app that generates a random CrossFit workout for the user and helps him/her to get through the intense Crossfit workout by displaying random motivational quotes using FavQs API. **_Moodifier_**'s main goal is to deliver unique user experience by generating  random empowering quotes that should encourage maximum physical performance.
