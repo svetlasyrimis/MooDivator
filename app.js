@@ -320,6 +320,7 @@ const selectWorkoutType = () => {
 let lastItem;
 const randomizer = (array) => {
 	// copy the array if the array is empty
+  
 	if (copiedArray === undefined ||
 		copiedArray.length === 0) {
 		copiedArray = array.slice();
@@ -336,7 +337,7 @@ const randomizer = (array) => {
 	// remove the random item from the copied array
 	copiedArray.splice(randomIndex, 1);
 	//Assign the value of randomItem to lastItem so we don't have duplicates between full loops
-	lastItem = randomItem;
+  lastItem = randomItem;
 	return randomItem;
 };
 const renderWorkout = (workout) => {
